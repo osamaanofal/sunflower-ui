@@ -6,6 +6,8 @@ import { StudentsPageComponent } from '../pages/students-page/students-page.comp
 import { OpenCoursesPageComponent } from '../pages/open-courses-page/open-courses-page.component';
 import { CreateOnlineClassPageComponent } from '../pages/create-online-class-page/create-online-class-page.component';
 import { OnlineClassesPageComponent } from '../pages/online-classes-page/online-classes-page.component';
+import { ViewCoursePageComponent } from '../pages/view-course-page/view-course-page.component';
+
 
 const routes: Routes = [
     {
@@ -32,8 +34,13 @@ const routes: Routes = [
         component: OnlineClassesPageComponent
     },
     {
+        path: 'courses/:id',
+        component: ViewCoursePageComponent
+    },
+    {
         path: 'courses',
-        component: CoursePageComponent
+        component: CoursePageComponent,
+       
     },
     {
         path: "**",
@@ -43,6 +50,6 @@ const routes: Routes = [
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
-exports: [RouterModule]
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }

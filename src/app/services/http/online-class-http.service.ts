@@ -9,6 +9,6 @@ import { BaseModelService } from './base-model.service';
 export class OnlineClassHttpService extends BaseModelService {
 
   constructor(http:HttpClient) {
-    super(http,API_CONSTANT.COURSES)
+    super(http,API_CONSTANT.ONLINE_CLASSES)
    }
 }

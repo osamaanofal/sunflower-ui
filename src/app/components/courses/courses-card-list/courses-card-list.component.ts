@@ -30,6 +30,7 @@ export class CoursesCardListComponent implements OnInit,OnChanges {
         dialogConfig.autoFocus = true;
 
         dialogConfig.data = course;
+        dialogConfig.width = "500px";
 
         const dialogRef = this.dialog.open(CourseDialogComponent, dialogConfig);
 

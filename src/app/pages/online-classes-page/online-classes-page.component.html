@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h3>All online Classes</h3>
+
+  <app-online-class-card
+    [onlineClass]="onlineClass"
+    *ngFor="let onlineClass of $onlineClasses | async"
+  >
+  <div class="extra-content">
+    <b>class Status: </b> {{ onlineClass.classStatus }}
+    <br />
+  </div>
+  </app-online-class-card>
+  <p class="no-data" *ngIf="$onlineClasses && ($onlineClasses | async)?.length == 0">
+    No data found
+  </p>
+</div>

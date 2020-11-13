@@ -1,32 +1,10 @@
 <div class="page-content">
   <h3>Available courses have open classes</h3>
 
-  <app-card-item *ngFor="let avCourse of $openCourses | async">
-    <div class="card-title">
-      {{ avCourse.courseTitle }}
-    </div>
-    <div class="card-content">
-      <b>class name: </b> {{ avCourse.classTitle }}
-      <br />
-      <br />
-      <b>course price: </b> {{ avCourse.price | currency }}
-      <br />
-      <br />
-      <b> with teacher : </b>
-      {{ avCourse.teacherName }}
-    </div>
-    <div class="card-actions">
-      <button
-        mat-button
-        class="mat-raised-button mat-primary"
-        [routerLink]="['/courses', avCourse.courseId]"
-      >
-        View Course
-      </button>
-    </div>
-  </app-card-item>
+    <app-online-class-card [onlineClass]="avCourse" *ngFor="let avCourse of $openCourses | async">
 
-  <p class="no-data" *ngIf="($openCourses | async).length == 0">
+    </app-online-class-card>
+  <p class="no-data" *ngIf="($openCourses | async)?.length == 0">
     No data found
   </p>
 </div>

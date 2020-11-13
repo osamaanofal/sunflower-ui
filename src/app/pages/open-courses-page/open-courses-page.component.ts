@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AvailableCourse } from 'src/app/model/available.course.model';
 import { CoursesHttpService } from 'src/app/services/http/courses-http.service';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { catchError, shareReplay } from 'rxjs/operators';
 import { GenericErrorHandlerService } from 'src/app/services/errors/generic-error-handler.service';
 
@@ -12,10 +12,10 @@ import { GenericErrorHandlerService } from 'src/app/services/errors/generic-erro
 })
 export class OpenCoursesPageComponent implements OnInit {
 
-  $openCourses: Observable<AvailableCourse[]>;
+  $openCourses: Observable<AvailableCourse[]> = of([]);
 
   constructor(private _coursesHtpp: CoursesHttpService, private _httpError: GenericErrorHandlerService) {
-
+console.log(this.$openCourses)
   }
 
   ngOnInit(): void {

@@ -1,0 +1,38 @@
+<app-card-item>
+  <div class="card-title">
+    {{ onlineClass.courseTitle || onlineClass.title }}
+  </div>
+  <div class="card-content">
+    <div>
+      <span [hidden]="!onlineClass.classTitle">
+        <b>class name: </b> {{ onlineClass.classTitle }}
+        <br />
+        <br />
+      </span>
+
+      <span [hidden]="!onlineClass.price">
+        <b>course price: </b> {{ onlineClass.price | currency }}
+        <br />
+        <br />
+      </span>
+
+      <span [hidden]="!onlineClass.teacherName">
+        <b> with teacher : </b>
+        {{ onlineClass.teacherName }}
+        <br />
+        <br />
+      </span>
+    </div>
+    <ng-content select=".extra-content"> </ng-content>
+  </div>
+  <div class="card-actions">
+    <button
+      mat-button
+      class="mat-raised-button mat-primary"
+      [routerLink]="['/courses', onlineClass.courseId]"
+    >
+      View Course
+    </button>
+    <ng-content select=".extra-actions"> </ng-content>
+  </div>
+</app-card-item>

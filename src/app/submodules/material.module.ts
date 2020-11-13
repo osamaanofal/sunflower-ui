@@ -18,6 +18,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 import { NgModule } from '@angular/core';
+import { MatNativeDateModule } from "@angular/material/core";
 
 const MODULES = [
     BrowserAnimationsModule,
@@ -37,7 +38,8 @@ const MODULES = [
     MatDialogModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatNativeDateModule
 
 ]
 

@@ -5,5 +5,7 @@ export interface AvailableCourse {
     courseTitle: string,
     price: number,
     teacherId: number,
-    teacherName: string
+    teacherName: string,
+    classStatus:string,
+    title?:string
 }

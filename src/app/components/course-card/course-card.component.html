@@ -1,0 +1,17 @@
+<app-card-item>
+  <div class="card-title">
+    {{ course.title }}
+  </div>
+  <div class="card-content">
+    <p>{{ course.description }}</p>
+  </div>
+  <div class="card-actions">
+    <button
+      mat-button
+      class="mat-raised-button mat-primary"
+      [routerLink]="['/courses', course.id]"
+    >
+      View Course
+    </button>
+  </div>
+</app-card-item>

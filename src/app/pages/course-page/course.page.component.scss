@@ -1,4 +1,5 @@
 
+@import "../common/pages.style";
 
 .courses-panel {
     display: flex;
@@ -6,3 +7,6 @@
     align-items: center;
 }
 
+app-course-card{
+    width: 500px;
+}

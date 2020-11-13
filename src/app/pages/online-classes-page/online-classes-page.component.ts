@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AvailableCourse } from 'src/app/model/available.course.model';
 import { CoursesHttpService } from 'src/app/services/http/courses-http.service';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, shareReplay } from 'rxjs/operators';
 import { GenericErrorHandlerService } from 'src/app/services/errors/generic-error-handler.service';
+import { OnlineClassHttpService } from './../../services/http/online-class-http.service';
 
 @Component({
   selector: 'app-online-classes-page',
@@ -12,15 +13,15 @@ import { GenericErrorHandlerService } from 'src/app/services/errors/generic-erro
 })
 export class OnlineClassesPageComponent implements OnInit {
 
-  $openCourses: Observable<AvailableCourse[]>;
+  $onlineClasses: Observable<AvailableCourse[]>;
 
-  constructor(private _coursesHtpp: CoursesHttpService,private _httpError:GenericErrorHandlerService) {
+  constructor(private _onlineClassHtpp: OnlineClassHttpService, private _httpError: GenericErrorHandlerService) {
 
   }
 
   ngOnInit(): void {
-    this.$openCourses = this._coursesHtpp.getOpenCoursesMappedToClasss()
-    .pipe(catchError(this._httpError.showeHttpToastError([])));
+    this.$onlineClasses = this._onlineClassHtpp.all()
+      .pipe(shareReplay(),catchError(this._httpError.showeHttpToastError([])));
   }
 
 }

@@ -20,6 +20,10 @@ import { CreateOnlineClassPageComponent } from './pages/create-online-class-page
 import { OnlineClassesPageComponent } from './pages/online-classes-page/online-classes-page.component';
 import { StudentsPageComponent } from './pages/students-page/students-page.component';
 import { CardItemComponent } from './components/card-item/card-item.component';
+import { OnlineClassCardComponent } from './components/online-class-card/online-class-card.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ViewCoursePageComponent } from './pages/view-course-page/view-course-page.component';
+import { CourseCardComponent } from './components/course-card/course-card.component';
 
 @NgModule({
     declarations: [
@@ -33,14 +37,19 @@ import { CardItemComponent } from './components/card-item/card-item.component';
         CreateOnlineClassPageComponent,
         OnlineClassesPageComponent,
         StudentsPageComponent,
-        CardItemComponent
+        CardItemComponent,
+        OnlineClassCardComponent,
+        ViewCoursePageComponent,
+        CourseCardComponent
     ],
     imports: [
         BrowserModule,
         CommonModule,
         AppRoutingModule,
         MaterialModule,
-        HttpClientModule
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule
     ],
     providers: [
 

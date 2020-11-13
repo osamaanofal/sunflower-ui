@@ -9,7 +9,7 @@ import { API_CONSTANT } from './api-constant';
 export class StudentHttpService extends BaseModelService {
 
   constructor(http: HttpClient) {
-    super(http, API_CONSTANT.COURSES)
+    super(http, API_CONSTANT.STUDENT)
 
   }
 }

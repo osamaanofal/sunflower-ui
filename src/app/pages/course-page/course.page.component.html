@@ -1,6 +1,11 @@
-<div class="courses-panel">
+<div class="page-content">
     <h3>All Courses</h3>
   
-    <courses-card-list [courses]="$courses | async"> </courses-card-list>
+    <app-course-card *ngFor="let course of $courses|async" [course]="course">
+      
+    </app-course-card>
+    <p class="no-data" *ngIf="$courses && ($courses | async)?.length == 0">
+      No data found
+    </p>
   </div>
   

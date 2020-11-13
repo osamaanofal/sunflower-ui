@@ -1,1 +1,20 @@
-<p>students-page works!</p>
+<div class="page-content">
+  <h3>all Students</h3>
+
+  <app-card-item *ngFor="let student of $student | async">
+    <div class="card-title">
+        <h3>{{ student.firstName }} {{ student.lastName }}</h3>
+    </div>
+
+    <div class="card-content">
+      <span>
+        <b>No of Joined Classes:</b>
+        {{ student.onlineClasses.length }}
+        <br/>
+        <br/>
+      </span>
+    </div>
+  </app-card-item>
+
+  <p *ngIf="($student | async)?.length == 0">no Students Data</p>
+</div>
