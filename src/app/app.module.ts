@@ -19,6 +19,7 @@ import { OpenCoursesPageComponent } from './pages/open-courses-page/open-courses
 import { CreateOnlineClassPageComponent } from './pages/create-online-class-page/create-online-class-page.component';
 import { OnlineClassesPageComponent } from './pages/online-classes-page/online-classes-page.component';
 import { StudentsPageComponent } from './pages/students-page/students-page.component';
+import { CardItemComponent } from './components/card-item/card-item.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import { StudentsPageComponent } from './pages/students-page/students-page.compo
         OpenCoursesPageComponent,
         CreateOnlineClassPageComponent,
         OnlineClassesPageComponent,
-        StudentsPageComponent
+        StudentsPageComponent,
+        CardItemComponent
     ],
     imports: [
         BrowserModule,

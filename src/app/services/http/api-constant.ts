@@ -1,9 +1,13 @@
-export const API_CONSTANT =  {
+export const API_CONSTANT = {
 
-    COURSES:'courses',
+    COURSES: 'courses',
 
-    STUDENT:'students',
+    STUDENT: 'students',
 
-    ONLINE_CLASSES:"online-classes"
+    ONLINE_CLASSES: "online-classes"
 
+}
+
+export const API_ENDPOINTS = {
+    GET_OPEN_COURSES: '/getOpenCourses'
 }

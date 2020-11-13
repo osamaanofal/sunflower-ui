@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 
 export class BaseModelService {
   public readonly apiUrl = environment.apiUrl;
+  protected readonly MODEL_URL = `${this.apiUrl}/${this.model}`;
   constructor(
     public http: HttpClient,
     public model: string) {
@@ -31,7 +32,7 @@ export class BaseModelService {
       .pipe(this.extracDataMapper(), catchError(this.catchError()))
   }
 
-  private catchError(){
+  protected catchError(){
     return (error) => {
       if(error  && typeof error == 'string'
       && error.toLocaleLowerCase() == "unknown error"){
@@ -41,7 +42,7 @@ export class BaseModelService {
     }
   }
  
-  private extracDataMapper() {
+  protected extracDataMapper() {
     return map((response: any) => {
       return response
     });
