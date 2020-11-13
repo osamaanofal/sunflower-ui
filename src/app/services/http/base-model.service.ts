@@ -11,10 +11,9 @@ export class BaseModelService {
     public model: string) {
   }
 
-  all(pageNo = 1, keyword = '', perPage = 10, sortBy = '', orderBy = '') {
+  all(pageNo = 0,  perPage = 100, sortBy = '', orderBy = '') {
     return this.http.get(this.apiUrl + '/' + this.model + '?page=' +
-      pageNo + '&keyword=' + keyword + '&per_page=' + keyword + '&sort_by=' +
-      keyword + '&order_by' + keyword)
+      pageNo + '&size=' + perPage )
       .pipe(this.extracDataMapper(),catchError(this.catchError()));
   }
 

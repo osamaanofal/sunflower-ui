@@ -13,6 +13,12 @@ import { CoursePageComponent } from './pages/course-page/course.page.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CoursesCardListComponent } from './components/courses/courses-card-list/courses-card-list.component';
 import { SideNavMenuComponent } from './components/layout/side-nav-menu/side-nav-menu.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { OpenCoursesPageComponent } from './pages/open-courses-page/open-courses-page.component';
+import { CreateOnlineClassPageComponent } from './pages/create-online-class-page/create-online-class-page.component';
+import { OnlineClassesPageComponent } from './pages/online-classes-page/online-classes-page.component';
+import { StudentsPageComponent } from './pages/students-page/students-page.component';
 
 @NgModule({
     declarations: [
@@ -21,12 +27,18 @@ import { SideNavMenuComponent } from './components/layout/side-nav-menu/side-nav
         CoursePageComponent,
         CoursesCardListComponent,
         CourseDialogComponent,
-        SideNavMenuComponent
+        SideNavMenuComponent,
+        OpenCoursesPageComponent,
+        CreateOnlineClassPageComponent,
+        OnlineClassesPageComponent,
+        StudentsPageComponent
     ],
     imports: [
         BrowserModule,
+        CommonModule,
         AppRoutingModule,
-        MaterialModule
+        MaterialModule,
+        HttpClientModule
     ],
     providers: [
 
