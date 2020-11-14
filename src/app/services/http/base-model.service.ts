@@ -12,14 +12,14 @@ export class BaseModelService {
     public model: string) {
   }
 
-  all(pageNo = 0,  perPage = 100, sortBy = '', orderBy = '') {
+  all(pageNo = 0, perPage = 100, sortBy = '', orderBy = '') {
     return this.http.get(this.apiUrl + '/' + this.model + '?page=' +
-      pageNo + '&size=' + perPage )
-      .pipe(this.extracDataMapper(),catchError(this.catchError()));
+      pageNo + '&size=' + perPage)
+      .pipe(this.extracDataMapper(), catchError(this.catchError()));
   }
 
   post(obj) {
-    return this.http.post(this.apiUrl + '/' + this.model + "/create" + '',obj)
+    return this.http.post(this.apiUrl + '/' + this.model + "/create" + '', obj)
       .pipe(this.extracDataMapper(), catchError(this.catchError()))
   }
 
@@ -32,16 +32,25 @@ export class BaseModelService {
       .pipe(this.extracDataMapper(), catchError(this.catchError()))
   }
 
-  protected catchError(){
+  lookup() {
+    return this.http.get(this.apiUrl + '/' + this.model + '/lookup')
+      .pipe(this.extracDataMapper(), catchError(this.catchError()))
+  }
+
+  doGetMethod(url: string) {
+    return this.http.get(url)
+      .pipe(this.extracDataMapper(), catchError(this.catchError()))
+  }
+  protected catchError() {
     return (error) => {
-      if(error  && typeof error == 'string'
-      && error.toLocaleLowerCase() == "unknown error"){
+      if (error && typeof error == 'string'
+        && error.toLocaleLowerCase() == "unknown error") {
         return throwError("Connection Error");
       }
       else return throwError(error);
     }
   }
- 
+
   protected extracDataMapper() {
     return map((response: any) => {
       return response

@@ -27,6 +27,8 @@ import { CourseCardComponent } from './components/course-card/course-card.compon
 import { CreateOnlineClassComponent } from './components/modal/create-online-class/create-online-class.component';
 import { StudentRegisterClassModalComponent } from './components/modal/student-register-class-modal/student-register-class-modal.component';
 import { StudentClassesModalComponent } from './components/modal/student-classes-modal/student-classes-modal.component';
+import { GenericTemplateModalComponent } from './components/modal/generic-template-modal/generic-template-modal.component';
+import { CreateOnlineClassModalComponent } from './components/modal/create-online-class-modal/create-online-class-modal.component';
 
 @NgModule({
     declarations: [
@@ -46,7 +48,9 @@ import { StudentClassesModalComponent } from './components/modal/student-classes
         CourseCardComponent,
         CreateOnlineClassComponent,
         StudentRegisterClassModalComponent,
-        StudentClassesModalComponent
+        StudentClassesModalComponent,
+        GenericTemplateModalComponent,
+        CreateOnlineClassModalComponent
     ],
     imports: [
         BrowserModule,

@@ -16,6 +16,8 @@ import { MatSortModule } from "@angular/material/sort";
 import { MatTableModule } from "@angular/material/table";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+
 
 import { NgModule } from '@angular/core';
 import { MatNativeDateModule } from "@angular/material/core";
@@ -39,6 +41,7 @@ const MODULES = [
     MatSelectModule,
     MatDatepickerModule,
     MatSnackBarModule,
+    MatAutocompleteModule,
     MatNativeDateModule
 
 ]

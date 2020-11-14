@@ -1,0 +1,23 @@
+<app-generic-template-modal title="Craete Online Class">
+  <div class="modal-content">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input
+          type="text"
+          placeholder="Choose a teacher"
+          matInput
+          [(ngModel)]="onlineClassModel.teacherId"
+          [matAutocomplete]="teacherAuto"
+        />
+        <mat-autocomplete autoActiveFirstOption #teacherAuto="matAutocomplete">
+          <mat-option
+            *ngFor="let teacher of $teachersLookup | async"
+            [value]="teacher.id"
+          >
+            {{ teacher.name }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </div>
+</app-generic-template-modal>

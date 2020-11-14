@@ -4,10 +4,15 @@ export const API_CONSTANT = {
 
     STUDENT: 'students',
 
-    ONLINE_CLASSES: "online-classes"
+    ONLINE_CLASSES: "online-classes",
+
+    TEACHER: "teachers"
+
 
 }
 
 export const API_ENDPOINTS = {
-    GET_OPEN_COURSES: '/getOpenCourses'
+    GET_OPEN_COURSES: '/getOpenCourses',
+    
+    REGISTER_STUDENT_ONLINE_CLASS:(studentId,classId) => `/student/${studentId}/online-class/${classId}`
 }
