@@ -1,6 +1,6 @@
 <app-card-item>
   <div class="card-title">
-    {{ onlineClass.courseTitle || onlineClass.title }}
+    <!-- {{ onlineClass.courseTitle || onlineClass.title }} -->
   </div>
   <div class="card-content">
     <div>
@@ -27,6 +27,11 @@
         <br />
         <br />
       </span>
+      <span [hidden]="!onlineClass.classStatus">
+        <b>class Status: </b> {{ onlineClass.classStatus }}
+        <br />
+        <br />
+      </span>
     </div>
     <ng-content select=".extra-content"> </ng-content>
   </div>
@@ -34,10 +39,30 @@
     <button
       mat-button
       class="mat-raised-button mat-primary"
-      [routerLink]="['/courses', onlineClass.courseId]"
+      [routerLink]="['/courses', onlineClass.courseId || -1 ]"
     >
       View Course
     </button>
+    <ng-container *ngIf="onlineClass.classStatus">
+      <button
+        mat-button
+        *ngIf="onlineClass.classStatus != 'OPEN'"
+        class="mat-raised-button mat-primary"
+        (click)="openClass()"
+      >
+        Open Class
+      </button>
+
+      <button
+        mat-button
+        *ngIf="onlineClass.classStatus != 'CLOSED'"
+        class="mat-raised-button mat-primary"
+        (click)="closeClass()"
+      >
+        Close Class
+      </button>
+    </ng-container>
+
     <ng-content select=".extra-actions"> </ng-content>
   </div>
 </app-card-item>

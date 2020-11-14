@@ -6,8 +6,6 @@
     *ngFor="let onlineClass of $onlineClasses | async"
   >
   <div class="extra-content">
-    <b>class Status: </b> {{ onlineClass.classStatus }}
-    <br />
   </div>
   </app-online-class-card>
   <p class="no-data" *ngIf="$onlineClasses && ($onlineClasses | async)?.length == 0">

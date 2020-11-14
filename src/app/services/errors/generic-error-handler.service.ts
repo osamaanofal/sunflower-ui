@@ -29,8 +29,8 @@ export class GenericErrorHandlerService {
       }
       else if(httpError instanceof HttpErrorResponse && httpError.error){
         const responseError = httpError.error as ResponseApiError;
-        this._showToastMessage(responseError.message || "somthing went wrong",
-                  responseError.error || "error");
+        this._showToastMessage((responseError.message+" :: "+responseError.detail) || "somthing went wrong",
+                  responseError.error || "Error");
       }else {
         this._showToastMessage(httpError, "somthing went wrong");
       }

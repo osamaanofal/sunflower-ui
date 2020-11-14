@@ -1,12 +1,12 @@
-import { StudentRegisterClassModalComponent } from './../../components/modal/student-register-class-modal/student-register-class-modal.component';
+import { StudentModel } from 'src/app/model/student.model';
 import { Component, OnInit } from '@angular/core';
 import { GenericErrorHandlerService } from 'src/app/services/errors/generic-error-handler.service';
 import { StudentHttpService } from './../../services/http/student-http.service';
 import { catchError, shareReplay } from 'rxjs/operators';
-import { StudentModel } from './../../model/student.model';
 import { Observable, of } from 'rxjs';
-import { MatDialog } from '@angular/material/dialog';
 
+
+//TODO create Own Student Card
 @Component({
   selector: 'app-students-page',
   templateUrl: './students-page.component.html',
@@ -14,29 +14,17 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class StudentsPageComponent implements OnInit {
 
-  $student:Observable<StudentModel[]> = of([]);
+  $student: Observable<StudentModel[]> = of([]);
 
-  constructor(private _studentHttp: StudentHttpService, 
-    private _httpErrors: GenericErrorHandlerService,
-    private _dialog:MatDialog) {
+  constructor(private _studentHttp: StudentHttpService,
+    private _httpErrors: GenericErrorHandlerService) {
 
-     }
+  }
 
   ngOnInit(): void {
     this.$student = this._studentHttp.all()
-      .pipe(shareReplay(),catchError(this._httpErrors.showeHttpToastError([])))
+      .pipe(shareReplay(), catchError(this._httpErrors.showeHttpToastError([])))
   }
 
-  openRegisterClassModal(){
-    this._dialog.open(StudentRegisterClassModalComponent,{
-      width:"500px",
-      autoFocus:true
-    }).afterClosed().subscribe((value)=>{
-      console.log("succes",value)
-    },()=>{
-      console.log("ERROR")
-    },()=>{
-      console.log("complted")
-    })
-  }
+
 }

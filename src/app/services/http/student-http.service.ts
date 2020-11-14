@@ -20,7 +20,7 @@ export class StudentHttpService extends BaseModelService {
    */
 
   registerStudentToClass(studentId, classId) {
-    const url = this.MODEL_URL + API_ENDPOINTS.REGISTER_STUDENT_ONLINE_CLASS(studentId, classId)
-    return this.doGetMethod(url);
+    const url = this.apiUrl + API_ENDPOINTS.REGISTER_STUDENT_ONLINE_CLASS(studentId, classId)
+    return this.doPostMethod(url);
   }
 }

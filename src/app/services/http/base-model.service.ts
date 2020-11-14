@@ -19,7 +19,7 @@ export class BaseModelService {
   }
 
   post(obj) {
-    return this.http.post(this.apiUrl + '/' + this.model + "/create" + '', obj)
+    return this.http.post(this.apiUrl + '/' + this.model, obj)
       .pipe(this.extracDataMapper(), catchError(this.catchError()))
   }
 
@@ -33,12 +33,16 @@ export class BaseModelService {
   }
 
   lookup() {
-    return this.http.get(this.apiUrl + '/' + this.model + '/lookup')
+    return this.http.get(this.apiUrl + '/' + this.model + '/lookups')
       .pipe(this.extracDataMapper(), catchError(this.catchError()))
   }
 
-  doGetMethod(url: string) {
+  protected doGetMethod(url: string) {
     return this.http.get(url)
+      .pipe(this.extracDataMapper(), catchError(this.catchError()))
+  }
+  protected doPostMethod(url: string) {
+    return this.http.post(url,{})
       .pipe(this.extracDataMapper(), catchError(this.catchError()))
   }
   protected catchError() {

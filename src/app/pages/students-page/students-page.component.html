@@ -1,25 +1,8 @@
 <div class="page-content">
   <h3>all Students</h3>
 
-  <app-card-item *ngFor="let student of $student | async">
-    <div class="card-title">
-        <h3>{{ student.firstName }} {{ student.lastName }}</h3>
-    </div>
+  <app-student-card [student]="student" *ngFor="let student of $student | async" >
 
-    <div class="card-content">
-      <span>
-        <b>No of Joined Classes:</b>
-        {{ student.onlineClasses.length }}
-        <br/>
-        <br/>
-      </span>
-    </div>
-
-    <div class="card-actions">
-      <button class="mat-raised-button mat-primary" (click)="openRegisterClassModal()" >Register to class</button>
-
-    </div>
-  </app-card-item>
-
+  </app-student-card>
   <p *ngIf="($student | async)?.length == 0">no Students Data</p>
 </div>

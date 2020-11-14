@@ -3,5 +3,6 @@ export interface ResponseApiError {
     message: string
     path: string
     status: number
+    detail:string
     timestamp: string
 }

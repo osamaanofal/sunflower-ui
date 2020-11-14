@@ -3,4 +3,5 @@ export interface OnlineClassModel {
     teacherId: number | null,
     courseId: number | null
     status: 'OPEN' | "CLOSED";
+    title:string
 }

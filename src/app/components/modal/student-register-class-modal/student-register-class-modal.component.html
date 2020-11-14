@@ -1,26 +1,37 @@
-<app-generic-template-modal title="Register Student to a class" (onOk)="onOk()">
-  <div class="modal-content">
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <input
-          type="text"
-          placeholder="Choose a teacher"
-          matInput
-          [(ngModel)]="formData.classId"
-          [matAutocomplete]="onlineClassesAuto"
-        />
-        <mat-autocomplete
-          autoActiveFirstOption
-          #onlineClassesAuto="matAutocomplete"
-        >
-          <mat-option
-            *ngFor="let onlineClass of $onlineClassesLookup | async"
-            [value]="onlineClass.id"
-          >
-            {{ onlineClass.name }}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-    </form>
-  </div>
-</app-generic-template-modal>
+<form #form="ngForm">
+    <app-generic-template-modal title="Register Student to a class" (onOk)="onOk()">
+        <div class="modal-content">
+            <div class="form-field">
+                <mat-form-field class="example-full-width">
+                    <input
+                      type="text"
+                      placeholder="Choose a class"
+                      matInput
+                      name="onlineClass"
+                      required
+                      [(ngModel)]="onlineClassSelected"
+                      #onlineClass="ngModel"
+                      [matAutocomplete]="onlineClassesAuto"
+                    />
+                    <mat-autocomplete
+                        [panelWidth]="500"
+                      autoActiveFirstOption
+                      #onlineClassesAuto="matAutocomplete"
+                      [displayWith]="displayName"
+                    >
+                      <mat-option
+                        *ngFor="let onlineClass of $combined | async"
+                        [value]="onlineClass"
+                      >
+                        {{ onlineClass.name }}
+                      </mat-option>
+                    </mat-autocomplete>
+                    
+                </mat-form-field>
+                <div class="field-error" [hidden]="!((form.submitted ||  onlineClass.touched) && onlineClass.invalid)">class is required</div>
+            </div>
+
+        </div>
+      </app-generic-template-modal>
+      
+</form>

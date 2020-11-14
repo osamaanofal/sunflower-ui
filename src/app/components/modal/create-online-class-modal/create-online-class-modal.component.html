@@ -1,23 +1,50 @@
-<app-generic-template-modal title="Craete Online Class">
-  <div class="modal-content">
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <input
-          type="text"
-          placeholder="Choose a teacher"
-          matInput
-          [(ngModel)]="onlineClassModel.teacherId"
-          [matAutocomplete]="teacherAuto"
-        />
-        <mat-autocomplete autoActiveFirstOption #teacherAuto="matAutocomplete">
-          <mat-option
-            *ngFor="let teacher of $teachersLookup | async"
-            [value]="teacher.id"
+<form #form="ngForm">
+  <app-generic-template-modal title="Craete Online Class" (onOk)="onOk()">
+    <div class="modal-content">
+       <div class="form-field">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Class title"
+            required
+            name="title"
+            #title="ngModel"
+            [(ngModel)]="onlineClassModel.title"
+          />
+        </mat-form-field>
+        <div class="field-error" [hidden]="!((form.submitted ||  title.touched) && title.invalid)">Name is required</div>
+  
+       </div>
+       <div class="form-field">
+        <mat-form-field class="example-full-width">
+          <input
+            type="text"
+            placeholder="Choose a teacher"
+            matInput
+            required
+            [(ngModel)]="teacherLookupSelected"
+            name="teacherId"
+            #teacher="ngModel"
+            [matAutocomplete]="teacherAuto"
+          />
+          <mat-autocomplete
+            autoActiveFirstOption
+            #teacherAuto="matAutocomplete"
+            [displayWith]="displayName"
           >
-            {{ teacher.name }}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-    </form>
-  </div>
-</app-generic-template-modal>
+            <mat-option
+              *ngFor="let teacher of $combined | async"
+              [value]="teacher"
+            >
+              {{ teacher.name }}
+            </mat-option>
+          </mat-autocomplete>
+  
+        </mat-form-field>
+        <div class="field-error" [hidden]="!((form.submitted ||  teacher.touched) && teacher.invalid)">teacher is required</div>
+  
+       </div>
+      <!-- </form> -->
+    </div>
+  </app-generic-template-modal>
+</form>

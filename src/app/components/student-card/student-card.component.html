@@ -1,0 +1,30 @@
+<app-card-item >
+    <div class="card-title">
+      <h3>{{ student.firstName }} {{ student.lastName }}</h3>
+    </div>
+
+    <div class="card-content">
+      <span>
+        <b>No of Joined Classes:</b>
+        {{ student.onlineClasses.length }}
+        <br />
+        <br />
+      </span>
+      <span *ngFor="let course of student.onlineClasses">
+        <b>Course / Class : </b>
+        {{ "  " + (course.courseTitle || "---") }} / {{ course.title || "---" }}
+        <br />
+        <br />
+      </span>
+    </div>
+
+    <div class="card-actions">
+      <button
+        mat-button
+        class="mat-raised-button mat-primary"
+        (click)="openRegisterClassModal(student)"
+      >
+        Register to Class
+      </button>
+    </div>
+  </app-card-item>

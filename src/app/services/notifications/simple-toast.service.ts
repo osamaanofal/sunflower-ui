@@ -11,10 +11,10 @@ export class SimpleToastService {
 
   }
 
-  public showToast(app:AppToastMessage){
+  public showToast(app: AppToastMessage) {
     this._snackBar.open(app.message, app.action, {
-      duration: app.duration * 1000,
-      panelClass:app.panelClass
+      duration: app.duration || 5000,
+      panelClass: app.panelClass
     });
   }
 }
