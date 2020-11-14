@@ -4,6 +4,11 @@
   </div>
   <div class="card-content">
     <div>
+      <span [hidden]="!onlineClass.courseTitle">
+        <b>Course name: </b> {{ onlineClass.courseTitle }}
+        <br />
+        <br />
+      </span>
       <span [hidden]="!onlineClass.classTitle">
         <b>class name: </b> {{ onlineClass.classTitle }}
         <br />

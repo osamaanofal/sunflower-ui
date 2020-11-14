@@ -22,16 +22,17 @@ export class GenericErrorHandlerService {
 
 
   public showeHttpToastError(defaultResponse: any = []) {
-    return (error) => {
-      if (error && typeof error == 'string'
-        && error.toLocaleLowerCase() == "unknown error") {
+    return (httpError) => {
+      if (httpError && typeof httpError == 'string'
+        && httpError.toLocaleLowerCase() == "unknown error") {
         this._showToastMessage("Connection Error");
       }
-      else if(error instanceof HttpErrorResponse){
-        const responseError = error.error as ResponseApiError;
-        this._showToastMessage(responseError.message,responseError.error);
+      else if(httpError instanceof HttpErrorResponse && httpError.error){
+        const responseError = httpError.error as ResponseApiError;
+        this._showToastMessage(responseError.message || "somthing went wrong",
+                  responseError.error || "error");
       }else {
-        this._showToastMessage(error, "somthing went wrong");
+        this._showToastMessage(httpError, "somthing went wrong");
       }
       
       return of(defaultResponse);
