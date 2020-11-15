@@ -1,0 +1,3 @@
+FROM nginx:alpine
+COPY dist/sunflower-ui /usr/share/nginx/html
+EXPOSE 80
