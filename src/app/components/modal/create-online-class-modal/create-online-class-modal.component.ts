@@ -74,10 +74,11 @@ export class CreateOnlineClassModalComponent implements OnInit {
 
         return this.$teachersLookup.
           pipe(map(lookups => {
-            return lookups.filter(item => item.name.indexOf(search.toLocaleLowerCase()) > -1)
+            return lookups.filter(item => item.name.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) > -1)
           }
           ))
-      })
+      }),
+      catchError(()=>of([]))
     )
   }
 }

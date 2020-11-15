@@ -47,7 +47,7 @@
       <button
         mat-button
         *ngIf="onlineClass.classStatus != 'OPEN'"
-        class="mat-raised-button mat-primary"
+        class="mat-raised-button mat-warn"
         (click)="openClass()"
       >
         Open Class
@@ -56,7 +56,7 @@
       <button
         mat-button
         *ngIf="onlineClass.classStatus != 'CLOSED'"
-        class="mat-raised-button mat-primary"
+        class="mat-raised-button mat-accent"
         (click)="closeClass()"
       >
         Close Class

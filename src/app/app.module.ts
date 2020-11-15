@@ -7,11 +7,9 @@ import { MaterialModule } from './submodules/material.module';
 import { AppRoutingModule } from './routes/app-routing.module';
 import { AppComponent } from './app.component';
 
-import { CourseDialogComponent } from './components/courses/course-dialog/course-dialog.component';
 import { CoursePageComponent } from './pages/course-page/course.page.component';
 
 import { HomeComponent } from './pages/home/home.component';
-import { CoursesCardListComponent } from './components/courses/courses-card-list/courses-card-list.component';
 import { SideNavMenuComponent } from './components/layout/side-nav-menu/side-nav-menu.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -36,8 +34,6 @@ import { StudentCardComponent } from './components/student-card/student-card.com
         AppComponent,
         HomeComponent,
         CoursePageComponent,
-        CoursesCardListComponent,
-        CourseDialogComponent,
         SideNavMenuComponent,
         OpenCoursesPageComponent,
         CreateOnlineClassPageComponent,
@@ -67,7 +63,7 @@ import { StudentCardComponent } from './components/student-card/student-card.com
 
     ],
     bootstrap: [AppComponent],
-    entryComponents: [CourseDialogComponent]
+    entryComponents: []
 })
 export class AppModule {
 }

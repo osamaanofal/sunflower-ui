@@ -56,9 +56,10 @@ export class StudentRegisterClassModalComponent implements OnInit, AfterViewInit
 
         return this.$onlineClassesLookup.
           pipe(map(lookups => {
-            return lookups.filter(item => item.name.indexOf(search.toLocaleLowerCase()) > -1)
+            return lookups.filter(item => item.name.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) > -1)
           }
-          ))})
+          ))}),
+          catchError(()=>of([]))
     )
   }
   onOk() {
