@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AvailableCourse } from 'src/app/model/available.course.model';
 import { CoursesHttpService } from 'src/app/services/http/courses-http.service';
 import { Observable, of } from 'rxjs';
-import { catchError, shareReplay } from 'rxjs/operators';
+import { catchError, map, shareReplay } from 'rxjs/operators';
 import { GenericErrorHandlerService } from 'src/app/services/errors/generic-error-handler.service';
 
 @Component({
@@ -20,7 +20,7 @@ console.log(this.$openCourses)
 
   ngOnInit(): void {
     this.$openCourses = this._coursesHtpp.getOpenCoursesMappedToClasss()
-      .pipe(shareReplay(), catchError(this._httpError.showeHttpToastError([])));
+      .pipe(shareReplay(), map((data: AvailableCourse[]) => data.sort((a,b)=> b.classId - a.classId) ), catchError(this._httpError.showeHttpToastError([])));
   }
 
 }
